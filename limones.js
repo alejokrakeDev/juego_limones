@@ -26,7 +26,10 @@ function moverIzquierda(){
     refrescarPantalla();
 }
 
-
+function moverDerecha(){
+    personajeX = personajeX + 10;
+    refrescarPantalla();
+}
 
 function refrescarPantalla(){
     limpiarPersonaje();
