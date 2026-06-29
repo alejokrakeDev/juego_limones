@@ -1,31 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-  <title>Caza Estrellas</title>
-  <link href="limones.css" rel="stylesheet"/>
-  <script src="utils.js"></script>
- 
- 
-</head>
-<body onload="iniciar();">
-  <div class="contenedor">
-    <h1>Atrapar Limones</h1>
-    <p>Si del cielo te caen limones ..... </p>
-    <h2>Autor: Martin Simbaña</h2>
-    <canvas id = "areaJuego" width="600" height="400"></canvas>
-    <div class="panel">
-      <p>Puntaje: <span id="txtPuntaje">0</span></p>
-      <p>vidas: <span id="txtVida">3</span></p>
-    </div>
-    <div class="botones">
-      <button onclick="moverIzquierda();">Izquierda</button>
-      <button onclick="moverDerecha();">Derecha</button>
-      <button onclick="bajarLimon();">Bajar limon</button>
-      <button onclick="reiniciar();">Reiniciar</button>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      
+    <title>Atrapar Limones</title>
+
+    <link rel="stylesheet" href="limones.css">
+    <script src="utils.js"></script>
+</head>
+
+<body onload="iniciar();">
+
+    <div class="contenedor">
+
+        <header class="encabezado">
+            <h1>🍋 Atrapar Limones</h1>
+            <p class="subtitulo">
+                ¡Atrapa la mayor cantidad de limones antes de perder todas tus vidas!
+            </p>
+            <h2>Autor: Martin Simbaña</h2>
+        </header>
+
+        <div class="panel">
+
+            <div class="tarjeta">
+                <span class="titulo">🏆 Puntaje</span>
+                <span id="txtPuntaje">0</span>
+            </div>
+
+            <div class="tarjeta">
+                <span class="titulo">❤️ Vidas</span>
+                <span id="txtVida">3</span>
+            </div>
+
+        </div>
+
+        <div class="juego">
+            <canvas id="areaJuego" width="600" height="400"></canvas>
+        </div>
+
+        <div class="botones">
+            <button onclick="moverIzquierda();">⬅ Izquierda</button>
+
+            <button onclick="moverDerecha();">Derecha ➡</button>
+
+            <button onclick="bajarLimon();">🍋 Bajar Limón</button>
+
+            <button class="reiniciar" onclick="reiniciar();">
+                🔄 Reiniciar
+            </button>
+        </div>
+
     </div>
-  </div>
-  <script src="limones.js"></script>
+
+    <script src="limones.js"></script>
+
 </body>
 </html>
