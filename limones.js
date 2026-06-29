@@ -24,9 +24,9 @@ function dibujarPersonaje(){
 function iniciar(){
     dibujarSuelo();
     dibujarPersonaje();
-    dibujarLimon();
-    bajarLimon();
+    aparecerLimon();
 }
+
 
 function moverIzquierda(){
     personajeX = personajeX - 10;
@@ -68,8 +68,17 @@ function detectarColision(){
     if(limonX+ANCHO_LIMON > personajeX && 
         limonX < personajeX+ANCHO_PERSONAJE &&
         limonY+ALTURA_LIMON > personajeY &&
-        limonY <personajeY+ALTURA_PERSONAJE
-    ){
-        alert("se encontraron")
+        limonY <personajeY+ALTURA_PERSONAJE){
+        aparecerLimon();
     }
+}
+function probarAleatorio(){
+    let probar = generarAleatorio(10,80)
+    console.log(probar)
+}
+
+function aparecerLimon(){
+    limonX= generarAleatorio(0,canvas.width-ANCHO_LIMON)
+    limonY=0
+    refrescarPantalla();
 }
