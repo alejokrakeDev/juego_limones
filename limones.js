@@ -12,7 +12,7 @@ let limonX = canvas.width/2;
 let limonY = 5;
 let puntaje = 0;
 let vidas = 3;
-let velocidadCaida = 200
+let velocidadCaida = 200;
 let intervalo
 
 function dibujarSuelo(){
@@ -36,14 +36,14 @@ function iniciar(){
 function moverIzquierda(){
     personajeX = personajeX - 10;
     refrescarPantalla();
-    detectarColision();
+    detectarAtrapado();
    
 }
 
 function moverDerecha(){
     personajeX = personajeX + 10;
     refrescarPantalla();
-    detectarColision();
+    detectarAtrapado();
     
 }
 
@@ -68,10 +68,10 @@ function bajarLimon (){
     limonY = limonY + 10
     dibujarLimon();
     refrescarPantalla();
+    detectarPiso();
     detectarAtrapado();
-    detectarColision();
 }
-function detectarColision(){
+function detectarAtrapado(){
     if(limonX+ANCHO_LIMON > personajeX && 
         limonX < personajeX+ANCHO_PERSONAJE &&
         limonY+ALTURA_LIMON > personajeY &&
@@ -80,6 +80,15 @@ function detectarColision(){
         puntaje = puntaje + 1
         mostrarEnSpan("txtPuntaje", puntaje)
     }
+    if(puntaje == 3 ){
+        velocidadCaida = 150;
+
+    }else if(puntaje == 6){
+        velocidadCaida = 100;
+    }else if(puntaje == 10){
+        alert("TIENES LOS LIMONES, AHORA TE FALTA SAL Y TEQUILA")
+    }
+    
 }
 
 function aparecerLimon(){
@@ -88,7 +97,7 @@ function aparecerLimon(){
     refrescarPantalla();
     
 }
-function detectarAtrapado(){
+function detectarPiso(){
     if (limonY + ALTURA_LIMON == canvas.height-ALTURA_SUELO ){
         aparecerLimon();
         vidas = vidas  - 1
